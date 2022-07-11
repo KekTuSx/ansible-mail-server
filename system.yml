@@ -1,0 +1,9 @@
+---
+# Playbook na instalaci Debian VM
+
+- hosts: localhost
+  gather_facts: true
+  become: true
+  roles:
+    - debian
+  
