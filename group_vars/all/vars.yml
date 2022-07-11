@@ -23,3 +23,4 @@ smtp_fqdn: "smtp.{{ domain }}"
 imap_fqdn: imap.{{ domain }}
 mail_user: mail
 email_for_updates: "{{ mail_user }}@{{ domain }}"
+path_postfixadmin: "/var/www/postfixadmin"
