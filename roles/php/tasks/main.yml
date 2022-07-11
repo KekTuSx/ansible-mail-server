@@ -10,4 +10,5 @@
       - php-imap
       - php-mysql
       - php-json
+      - php-mbstring
     update_cache: yes
