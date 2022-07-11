@@ -1,0 +1,13 @@
+---
+# PHP
+
+- name: Instalace balicku
+  apt:
+    state: latest
+    pkg: 
+      - php
+      - php-common
+      - php-imap
+      - php-mysql
+      - php-json
+    update_cache: yes
