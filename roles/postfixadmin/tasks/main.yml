@@ -1,0 +1,43 @@
+---
+# Postfixadmin
+
+- name: Stazeni tarballu
+  get_url:
+    url: https://sourceforge.net/projects/postfixadmin/files/latest/download
+    dest: /tmp/postfixadmin-latest.tar.gz
+
+- name: Vytvoreni cesty
+  file:
+    dest: "{{ postfixadmin_path }}"
+    state: directory
+    recurse: yes
+    group: apache
+    owner: apache
+
+- name: "Rozbaleni"
+  command: tar -C {{ postfixadmin_path }} -xvf /tmp/postfixadmin-latest.tar.gz
+# args:
+#   creates: "{{ postfixadmin_path }}/index.php"
+  become: true
+  become_user: apache
+
+# https://github.com/Nainterceptor/ansible-role-postfixadmin
+
+- name: "Replace httpd service"
+  copy: src=../files/httpd.service dest=/usr/lib/systemd/system/httpd.service
+  notify:
+    - "Enable Apache"
+    - "Restart Apache"
+
+- name: "Place httpd vhost"
+  template: src=../files/vhost.conf.j2 dest=/etc/httpd/conf.d/postfixadmin.conf
+
+- name: "Prepare - remove welcome vhost"
+  file:
+    dest: "/etc/httpd/conf.d/welcome.conf"
+    state: absent
+  notify:
+    - "Restart Apache"
+
+- name: "Configure postfixadmin"
+  template: src=../files/config.inc.php.j2 dest={{ postfixadmin_path }}/config.inc.php
