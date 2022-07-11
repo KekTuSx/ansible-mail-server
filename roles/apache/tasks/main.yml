@@ -1,0 +1,9 @@
+---
+# Apache2
+
+- name: Instalace balicku
+  apt:
+    state: latest
+    pkg: 
+      - apache2
+    update_cache: yes
