@@ -50,3 +50,9 @@
   retries: 5
   delay: 2
 
+- name: Pridani VM IP do hosts
+  lineinfile:
+    dest: {{ path-hosts }}
+    regexp: '^ip'
+    line: "{{ ip_address }}"
+    state: present
