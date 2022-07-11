@@ -1,0 +1,19 @@
+---
+# Shorewall
+
+- name: Instalace balicku
+  apt:
+    state: latest
+    pkg: 
+      - shorewall
+    update_cache: yes
+
+- name: Toggle Shorewallu
+  lineinfile:
+    dest: /etc/default/shorewall
+    regexp: "^startup = 0"
+    line: "startup = 1"
+    state: present
+
+- name: Spusteni Shorewallu
+  command: systemctl enable shorewall
