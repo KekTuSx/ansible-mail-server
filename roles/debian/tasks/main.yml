@@ -52,7 +52,7 @@
 
 - name: Pridani VM IP do hosts
   lineinfile:
-    dest: {{ path-hosts }}
+    dest: {{ path_hosts }}
     regexp: '^ip'
     line: "{{ ip_address }}"
     state: present
