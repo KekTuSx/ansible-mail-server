@@ -1,5 +1,5 @@
 ---
-# Postfix
+# Postfix (SMTP)
 
 - name: Install packages
   apt:

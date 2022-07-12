@@ -1,5 +1,5 @@
 ---
-# Dovecot
+# Dovecot (POP/IMAP)
 
 - name: Install packages
   apt:

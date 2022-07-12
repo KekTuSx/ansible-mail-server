@@ -8,6 +8,8 @@
       - shorewall
     update_cache: yes
 
+- name: Whitelist portu {22, 25, 80, 443, 465, 587, 993, 995}
+
 - name: Toggle Shorewallu
   lineinfile:
     dest: /etc/default/shorewall
@@ -20,5 +22,3 @@
     name: shorewall
     state: restarted
     enabled: yes
-
-- name: Whitelist portu {22, 25, 80, 443, 465, 587, 993, 995}
