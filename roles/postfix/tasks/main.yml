@@ -1,5 +1,5 @@
 ---
-# Tasks file for postfix
+# Postfix
 
 - name: Install packages
   apt:

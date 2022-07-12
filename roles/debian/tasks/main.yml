@@ -1,5 +1,5 @@
 ---
-# Vytvoreni virtualu
+# Virtual Machine
 
 - name: Seznam existujicich VMs
   community.libvirt.virt:

@@ -1,5 +1,5 @@
 ---
-# Tasks file for dovecot
+# Dovecot
 
 - name: Install packages
   apt:

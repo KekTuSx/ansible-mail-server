@@ -1,5 +1,5 @@
 ---
-# Tasks file for rspamd
+# rspamd
 
 - name: Add the rspamd apt key
   apt_key:

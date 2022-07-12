@@ -1,5 +1,5 @@
 ---
-# Tasks file for mariadb
+# MariaDB
 
 - name: Install packages
   apt:
