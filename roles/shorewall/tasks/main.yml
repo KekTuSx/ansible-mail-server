@@ -15,5 +15,10 @@
     line: "startup = 1"
     state: present
 
-- name: Spusteni Shorewallu
-  command: systemctl enable shorewall
+- name: Start/restart Shorewallu
+  service:
+    name: shorewall
+    state: restarted
+    enabled: yes
+
+- name: Whitelist portu {22, 25, 80, 443, 465, 587, 993, 995}
