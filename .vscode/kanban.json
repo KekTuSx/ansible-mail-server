@@ -1,0 +1,84 @@
+{
+    "title": "Kanban",
+    "cols": [
+        {
+            "title": "To-Do",
+            "tasks": [
+                {
+                    "text": "Vsechny heslo v Ansible vaultu",
+                    "id": "cl5i0kitw000p40608ibdwkkq"
+                },
+                {
+                    "text": "acme.sh (skript na certifikaty) pro hostname v main.cf, v cronu autorenew",
+                    "id": "cl5i0l7xy000s4060yd95s2vd"
+                },
+                {
+                    "text": "Whitelistnout porty v Shorewallu",
+                    "id": "cl5i0kxcf000r4060yqqcec1c"
+                },
+                {
+                    "text": "seznam ssh klicu",
+                    "id": "cl5i0kskv000q4060q3whizrg"
+                },
+                {
+                    "text": "roundcube",
+                    "id": "cl5i0k0v1000n4060c483gy8f"
+                }
+            ],
+            "id": "cl5i0df5v000c4060bhyn6ule",
+            "color": "#fcb900"
+        },
+        {
+            "title": "Doing",
+            "tasks": [],
+            "id": "cl5i0df5v000d4060cvzhubd8",
+            "color": "#0693e3"
+        },
+        {
+            "title": "Done",
+            "tasks": [
+                {
+                    "text": "rspamd",
+                    "id": "cl5i0jjlw000k4060zysycm2f"
+                },
+                {
+                    "text": "Apache2",
+                    "id": "cl5i0idxy000j4060e93apk7n"
+                },
+                {
+                    "text": "*Playbook 1*: Vytvoreni VM",
+                    "id": "cl5i0f0qu000g4060vv0gzzaj"
+                },
+                {
+                    "text": "login a heslo do postfixadmin databaze",
+                    "id": "cl5i0k4q5000o4060jh1cebdv"
+                },
+                {
+                    "text": "postfixadmin",
+                    "id": "cl5i0jpcs000m4060twp8ngfl"
+                },
+                {
+                    "text": "PHP",
+                    "id": "cl5i0i7un000i4060rygcmrgn"
+                },
+                {
+                    "text": "Nazev serveru a domena",
+                    "id": "cl5i0df5v000b4060l5o4c2rw"
+                },
+                {
+                    "text": "Postfix konfigurace",
+                    "id": "cl5i0hyfi000h4060lqkiwcad"
+                },
+                {
+                    "text": "dovecot",
+                    "id": "cl5i0jmcc000l406088a3ir0l"
+                }
+            ],
+            "id": "cl5i0df5v000e40605604nzw8",
+            "color": "#00d084"
+        }
+    ],
+    "autosave": true,
+    "saveToFile": true,
+    "timestamp": 1657621736468
+}
