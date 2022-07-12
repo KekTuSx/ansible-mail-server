@@ -1,11 +1,13 @@
 ---
-# MariaDB
+# MariaDB (MySQL)
 
 - name: Install packages
   apt:
     state: latest
     pkg:
       - mariadb-server
+      - mysql-client
+      - mysql-common
     update_cache: yes
 
 - name: Create user vmail

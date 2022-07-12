@@ -11,4 +11,11 @@
       - php-mysql
       - php-json
       - php-mbstring
+      - php-pear
+      - php-gd
+      - php-curl
+      - php-zip
+      - php-ldap
+      - php-imagick
+      - php-xml
     update_cache: yes
