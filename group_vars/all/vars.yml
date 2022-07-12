@@ -1,5 +1,4 @@
 ---
-# Group vars for all hosts
 
 # System
 base_image_name: debian-11-genericcloud-amd64.qcow2
@@ -20,7 +19,14 @@ domain: sic
 ip_address: "{{ ansible_default_ipv4.address }}"
 mail_fqdn: "{{ host }}.{{ domain }}"
 smtp_fqdn: "smtp.{{ domain }}"
-imap_fqdn: imap.{{ domain }}
+imap_fqdn: "imap.{{ domain }}"
 mail_user: mail
 email_for_updates: "{{ mail_user }}@{{ domain }}"
-path_postfixadmin: "/var/www/postfixadmin"
+
+# Postfixadmin
+path_postfixadmin: /var/www/postfixadmin
+mysql_hostname: localhost
+mysql_database: postfix
+mysql_username: postfixadmin
+mysql_password: heslo # DO VAULTU
+setup_password: heslo # DO VAULTU
