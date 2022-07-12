@@ -521,7 +521,7 @@ $CONF['domain_postdeletion_script'] = '';
 //
 // $CONF['create_mailbox_subdirs']=array('Spam');
 $CONF['create_mailbox_subdirs'] = array('Drafts','Spam','Sent','Trash');
-$CONF['create_mailbox_subdirs_host']='localhost';
+$CONF['create_mailbox_subdirs_host']='{{ mail_fqdn }}t'; # localhost
 //
 // Specify '' for Dovecot and 'INBOX.' for Courier.
 $CONF['create_mailbox_subdirs_prefix']='INBOX.';

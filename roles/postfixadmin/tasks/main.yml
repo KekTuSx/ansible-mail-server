@@ -5,8 +5,8 @@
 - name: Vytvoreni databaze
   shell: "mysql << EOF
     CREATE DATABASE {{ mysql_database }};
-    CREATE USER '{{ mysql_username }}'@'localhost' IDENTIFIED BY '{{ mysql_password }}';
-    GRANT ALL PRIVILEGES ON `{{ mysql_database }}` . * TO '{{ mysql_username }}'@'localhost';
+    CREATE USER '{{ mysql_username }}'@'{{ mail_fqdn }}' IDENTIFIED BY '{{ mysql_password }}';
+    GRANT ALL PRIVILEGES ON `{{ mysql_database }}` . * TO '{{ mysql_username }}'@'{{ mail_fqdn }}';
     FLUSH PRIVILEGES;
     EOF"
 
