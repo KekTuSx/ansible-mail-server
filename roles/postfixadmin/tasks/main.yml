@@ -1,6 +1,18 @@
 ---
 # Postfixadmin
 
+# https://stackoverflow.com/a/39951905
+- name: Vytvoreni databaze
+  shell: "mysql << EOF
+    CREATE DATABASE {{ mysql_database }};
+    CREATE USER '{{ mysql_username }}'@'localhost' IDENTIFIED BY '{{ mysql_password }}';
+    GRANT ALL PRIVILEGES ON `{{ mysql_database }}` . * TO '{{ mysql_username }}'@'localhost';
+    FLUSH PRIVILEGES;
+    EOF"
+
+# https://github.com/Nainterceptor/ansible-role-postfixadmin
+# ↓ ↓ ↓ ↓ ↓ ↓
+
 - name: Stazeni tarballu
   get_url:
     url: https://sourceforge.net/projects/postfixadmin/files/latest/download
@@ -21,8 +33,6 @@
   become: true
   become_user: apache
 
-# https://github.com/Nainterceptor/ansible-role-postfixadmin
-
 - name: "Replace httpd service"
   copy: src=../files/httpd.service dest=/usr/lib/systemd/system/httpd.service
   notify:
@@ -32,7 +42,7 @@
 - name: "Place httpd vhost"
   template: src=../files/vhost.conf.j2 dest=/etc/httpd/conf.d/postfixadmin.conf
 
-- name: "Prepare - remove welcome vhost"
+- name: "Remove welcome vhost"
   file:
     dest: "/etc/httpd/conf.d/welcome.conf"
     state: absent
