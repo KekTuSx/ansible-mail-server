@@ -20,16 +20,16 @@
 
 - name: Vytvoreni cesty
   file:
-    dest: "{{ postfixadmin_path }}"
+    dest: "{{ path_postfixadmin }}"
     state: directory
     recurse: yes
     group: apache
     owner: apache
 
 - name: "Rozbaleni"
-  command: tar -C {{ postfixadmin_path }} -xvf /tmp/postfixadmin-latest.tar.gz
+  command: tar -C {{ path_postfixadmin }} -xvf /tmp/postfixadmin-latest.tar.gz
 # args:
-#   creates: "{{ postfixadmin_path }}/index.php"
+#   creates: "{{ path_postfixadmin }}/index.php"
   become: true
   become_user: apache
 
@@ -50,4 +50,4 @@
     - "Restart Apache"
 
 - name: "Configure postfixadmin"
-  template: src=../files/config.inc.php.j2 dest={{ postfixadmin_path }}/config.inc.php
+  template: src=../files/config.inc.php.j2 dest={{ path_postfixadmin }}/config.inc.php
