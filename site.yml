@@ -1,5 +1,5 @@
 ---
-# Instalace softwaru
+# Playbook pro instalaci mailovych sluzeb
 
 - hosts: mail
   become: true
