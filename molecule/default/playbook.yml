@@ -2,10 +2,16 @@
 # This is the top-level playbook
 
 - hosts: all
-  become: yes
+  become: true
   roles:
+    - debian
     - general
     - mariadb
     - dovecot
     - postfix
     - rspamd
+    - rspamd
+    - php
+    - apache
+    - postfixadmin
+    - roundcube
