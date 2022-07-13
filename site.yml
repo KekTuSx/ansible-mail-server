@@ -7,9 +7,9 @@
     - general
     - mariadb
     - dovecot
+    - postfix
     - rspamd
     - php
     - apache
-    - postfix
     - postfixadmin
     - roundcube
