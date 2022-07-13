@@ -4,3 +4,4 @@ POSTFIXADMIN
 	https://stackoverflow.com/a/39951905
 	https://docs.bitnami.com/installer/apps/roundcube/configuration/use-postfix-dovecot/
 	https://wiki.debian.org/HowTo/shorewall
+	https://thomas-leister.de/mailserver-debian-stretch/
