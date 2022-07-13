@@ -2,8 +2,8 @@
 # Globalni promenne
 
 # Mail server
-host: mail.server
-domain: sic
+host: mail
+domain: sic.cz
 ip_address: "{{ ansible_default_ipv4.address }}"
 mail_fqdn: "{{ host }}.{{ domain }}"
 smtp_fqdn: "smtp.{{ domain }}"
