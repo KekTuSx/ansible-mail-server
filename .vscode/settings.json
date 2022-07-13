@@ -1,5 +1,6 @@
 {
 	"yaml.schemas": {
-		"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-vars.json": "file:///c%3A/Users/user/Repositories/ansible-mail-server/group_vars/all/vars.yml"
+		"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-vars.json": "file:///c%3A/Users/user/Repositories/ansible-mail-server/group_vars/all/vars.yml",
+		"https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json#/$defs/playbook": "file:///c%3A/Users/user/Repositories/ansible-mail-server/add_user.yml"
 	}
 }
