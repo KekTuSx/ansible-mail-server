@@ -1,0 +1,14 @@
+---
+# Handlery pro Shorewall
+# nevim, jestli neco udelaji, nebo je potreba reboot
+
+- name: Start Shorewallu
+  service:
+    name: shorewall
+    state: started
+    enabled: yes
+
+- name: Restart Shorewallu
+  service:
+    name: shorewall
+    state: restarted

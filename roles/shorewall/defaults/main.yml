@@ -1,0 +1,6 @@
+---
+# Defaults pro Shorewall
+
+net_int:
+loc_int:
+dmz_int:

@@ -8,17 +8,46 @@
       - shorewall
     update_cache: yes
 
-- name: Whitelist portu {22, 25, 80, 443, 465, 587, 993, 995}
-
+# https://wiki.debian.org/HowTo/shorewall
 - name: Toggle Shorewallu
   lineinfile:
     dest: /etc/default/shorewall
     regexp: "^startup = 0"
     line: "startup = 1"
     state: present
+  notify:
+  - Start Shorewallu
+  tags: shorewall
+
+- name: Kopirovani zones
+  copy:
+    src: files/zones
+    dest: /etc/shorewall/zones
+  tags: shorewall
+
+- name: Templating interfaces
+  template:
+    src: templates/interfaces
+    dest: /etc/shorewall/interfaces
+  tags: shorewall
+
+- name: Kopirovani policy
+  copy:
+    src: files/policy
+    dest: /etc/shorewall/policy
+  tags: shorewall
+
+- name: Kopirovani rules
+  copy:
+    src: files/rules
+    dest: /etc/shorewall/rules
+  tags: shorewall
 
 - name: Start/restart Shorewallu
   service:
     name: shorewall
     state: restarted
     enabled: yes
+  notify:
+  - Restart Shorewalu
+  tags: shorewall
