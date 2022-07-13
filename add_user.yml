@@ -1,0 +1,31 @@
+---
+# Playbook pro pridani uzivatele
+
+- hosts: mail
+  vars_prompt:
+    - name: username
+      prompt: Zadejte uzivatelske jmeno
+      private: false
+      confirm: true
+    
+    - name: user_pw_hash
+      prompt: Zadejte heslo
+      private: true
+      confirm: true
+      encrypt: sha512_crypt
+      salt_size: 8
+
+  tasks:
+    - name: Pridani zaznamu do databaze
+      community.mysql.mysql_query:
+        login_db: vmail
+        query: INSERT INTO accounts (username, domain, password, quota, enabled, sendonly) values ('%s', '%s', '%s', 2048, true, false)
+        positional_args:
+        - {{ username }}
+        - {{ domain }}
+        - {{ user_pw_hash }}
+        
+      #shell: "mysql << EOF
+      #  USE vmail;
+      #  INSERT INTO accounts (username, domain, password, quota, enabled, sendonly) values ('{{ username }}', '{{ domain }}', '{{ user_pw_hash }}', 2048, true, false);
+      #  EOF"
