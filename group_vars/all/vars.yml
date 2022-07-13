@@ -13,11 +13,13 @@ email_for_updates: "{{ mail_user }}@{{ domain }}"
 
 # Postfixadmin
 path_postfixadmin: /var/www/postfixadmin
-mysql_hostname: {{ mail_fqdn }}
+mysql_hostname: "{{ mail_fqdn }}"
 mysql_database: postfix
 mysql_username: postfixadmin
 mysql_password: heslo # DO VAULTU
 setup_password: heslo # DO VAULTU
+
+personal_email: 
 
 whitelist_ports:
   - "22" # SSH

@@ -1,0 +1,12 @@
+---
+# Tasky pro acme.sh
+
+- name: Stazeni instalacnich souboru
+  git:
+    repo: https://github.com/acmesh-official/acme.sh
+    dest: /tmp
+    clone: yes
+    update: yes
+  
+- name: Instalace acme.sh
+  shell: cd /tmp/acme.sh && ./acme.sh --install -m {{ personal_email }}
