@@ -20,11 +20,11 @@ mysql_password: heslo # DO VAULTU
 setup_password: heslo # DO VAULTU
 
 whitelist_ports:
-  - "22"
-  - "25"
-  - "80"
-  - "443"
-  - "465"
-  - "587"
-  - "993"
-  - "995"
+  - "22" # SSH
+  - "25" # SMTP
+  - "80" # HTTP
+  - "443" # HTTP/HTTPS
+  - "465" # SMTP/SMTPS
+  - "587" # SMTPS
+  - "993" # IMAP SSL
+  - "995" # POP3 SSL/TLS
