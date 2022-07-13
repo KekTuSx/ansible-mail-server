@@ -1,14 +1,26 @@
 ---
 # Postfixadmin
 
-# https://stackoverflow.com/a/39951905
+- name: Template databaze
+  template:
+    src: template/database.j2
+    dest: /tmp/database.sql
+
 - name: Vytvoreni databaze
-  shell: "mysql << EOF
-    CREATE DATABASE {{ mysql_database }};
-    CREATE USER '{{ mysql_username }}'@'{{ mail_fqdn }}' IDENTIFIED BY '{{ mysql_password }}';
-    GRANT ALL PRIVILEGES ON `{{ mysql_database }}` . * TO '{{ mysql_username }}'@'{{ mail_fqdn }}';
-    FLUSH PRIVILEGES;
-    EOF"
+  command: mysql --execute="source /tmp/database.sql;"
+
+- name: Odstraneni tempu
+  file:
+    state: absent
+    path: /tmp/database.sql
+
+# https://stackoverflow.com/a/39951905
+#shell: "mysql << EOF
+#  CREATE DATABASE {{ mysql_database }};
+#  CREATE USER '{{ mysql_username }}'@'{{ mail_fqdn }}' IDENTIFIED BY '{{ mysql_password }}';
+#  GRANT ALL PRIVILEGES ON `{{ mysql_database }}` . * TO '{{ mysql_username }}'@'{{ mail_fqdn }}';
+#  FLUSH PRIVILEGES;
+#  EOF"
 
 # https://github.com/Nainterceptor/ansible-role-postfixadmin
 # ↓ ↓ ↓ ↓ ↓ ↓
