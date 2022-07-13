@@ -1,0 +1,4 @@
+#ZONE   INTERFACE   	BROADCAST   OPTIONS
+net		{{ net_int }}	detect 		dhcp,routefilter,tcpflags
+dmz 	{{ dmz_int }} 	detect 		dhcp
+loc		{{ loc_int }} 	detect 		dhcp

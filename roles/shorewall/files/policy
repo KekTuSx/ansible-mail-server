@@ -1,0 +1,6 @@
+#SOURCE		DEST		POLICY		LOGLEVEL		LIMIT
+net			all			DROP		info
+dmz			all			REJECT		info
+loc			all			REJECT		info
+fw			all			ACCEPT		
+all			all 		REJECT		info

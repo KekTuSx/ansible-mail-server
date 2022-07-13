@@ -1,0 +1,11 @@
+#ACTION		SOURCE		DEST		PROTO		DPORT
+ALLOW		all			all			ssh			22
+ALLOW		all			all			smtp		25,465,587
+ALLOW		all			all			smtps		465,587
+ALLOW		all			all			http		80,443
+ALLOW		all			all			http		443
+ALLOW		all			all			imap		993
+ALLOW		all			all			imaps		993
+ALLOW 		all			all			pop3s		995
+
+# vim, ze tohle je hrozne spatne
