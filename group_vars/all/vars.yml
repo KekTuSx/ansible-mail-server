@@ -6,10 +6,12 @@ host: mail
 domain: sic.cz
 ip_address: "{{ ansible_default_ipv4.address }}"
 mail_fqdn: "{{ host }}.{{ domain }}"
-smtp_fqdn: "smtp.{{ domain }}"
-imap_fqdn: "imap.{{ domain }}"
+smtp_fqdn: "smtp.{{ domain }}" # aliasy pro mail_fqdn
+imap_fqdn: "imap.{{ domain }}" # ^^^^^
 mail_user: mail
 email_for_updates: "{{ mail_user }}@{{ domain }}"
+
+dovecot_enc: SHA512-CRYPT
 
 # Postfixadmin
 path_postfixadmin: /var/www/postfixadmin
@@ -22,11 +24,11 @@ setup_password: heslo # DO VAULTU
 personal_email: 
 
 whitelist_ports:
-  - "22" # SSH
-  - "25" # SMTP
-  - "80" # HTTP
-  - "443" # HTTP/HTTPS
-  - "465" # SMTP/SMTPS
-  - "587" # SMTPS
-  - "993" # IMAP SSL
-  - "995" # POP3 SSL/TLS
+  - 22 # SSH
+  - 25 # SMTP
+  - 80 # HTTP
+  - 443 # HTTP/HTTPS
+  - 465 # SMTP/SMTPS
+  - 587 # SMTPS
+  - 993 # IMAP SSL
+  - 995 # POP3 SSL/TLS
