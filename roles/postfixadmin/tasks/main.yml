@@ -36,7 +36,7 @@
 
 - name: Vytvoreni cesty
   file:
-    dest: "{{ path_postfixadmin }}"
+    dest: "{{ postfixadmin_path }}"
     state: directory
     recurse: true
     group: apache
@@ -44,9 +44,9 @@
   tags: postfixadmin
 
 - name: Rozbaleni taru
-  command: tar -C {{ path_postfixadmin }} -xvf /tmp/postfixadmin-latest.tar.gz
+  command: tar -C {{ postfixadmin_path }} -xvf /tmp/postfixadmin-latest.tar.gz
 # args:
-#   creates: "{{ path_postfixadmin }}/index.php"
+#   creates: "{{ postfixadmin_path }}/index.php"
   become: true
   become_user: apache
   tags: postfixadmin
@@ -58,8 +58,8 @@
     - Restart Apache
   tags: postfixadmin
 
-- name: Template httpd configu
-  template: src=../files/vhost.conf.j2 dest=/etc/httpd/conf.d/postfixadmin.conf
+- name: Template httpd postfixadmin configu
+  template: src=../files/httpd.conf.j2 dest=/etc/httpd/conf.d/postfixadmin.conf
   tags: postfixadmin
 
 - name: Odstraneni httpd welcome configu
@@ -71,5 +71,5 @@
   tags: postfixadmin
 
 - name: Template konfigurace Postfixadmina
-  template: src=../templates/config.inc.php.j2 dest={{ path_postfixadmin }}/config.inc.php
+  template: src=../templates/config.inc.php.j2 dest={{ postfixadmin_path }}/config.inc.php
   tags: postfixadmin
