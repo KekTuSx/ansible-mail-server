@@ -1,7 +1,14 @@
 <VirtualHost *:80>
-    DocumentRoot "{{ path_postfixadmin }}"
+    ServerAdmin webmaster@{{ domain }}
+    DocumentRoot "{{ postfixadmin_path }}"
     ErrorLog "/var/log/httpd/postfixadmin-error_log"
     TransferLog "/var/log/httpd/postfixadmin-access_log"
+
+    # Certifikaty
+    SSLEngine on
+    SSLCertificateFile {{ cert_path }}
+    SSLCertificateKeyFile {{ key_path }}
+    SSLCertificateChainFile {{ fullchain_path }}
 
     <Directory />
         Options +Indexes +FollowSymLinks +ExecCGI
