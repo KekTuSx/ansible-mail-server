@@ -5,24 +5,48 @@
             "title": "To-Do",
             "tasks": [
                 {
+                    "text": "Certifikaty pro Roundcube",
+                    "id": "cl5l2utxa000h4060qme98kfi"
+                },
+                {
+                    "text": "Zkontrolovat propojeni rspamd a redis",
+                    "id": "cl5l2hzkn000g4060kahg5f32"
+                },
+                {
+                    "text": "Certifikaty pro Postfix",
+                    "id": "cl5l29f0f000f40606yr8q1qe"
+                },
+                {
+                    "text": "Certifikaty pro Dovecot",
+                    "id": "cl5l297af000e4060875g1bom"
+                },
+                {
+                    "text": "Certifikaty pro Apache/Postfixadmin?",
+                    "id": "cl5l24hzm000d4060t7mb5fyv"
+                },
+                {
+                    "text": "Predelat README",
+                    "id": "cl5l1oght000b4060ivhbglb1"
+                },
+                {
+                    "text": "Bats test",
+                    "id": "cl5l1oy1d000c4060zwgh0ino"
+                },
+                {
+                    "text": "Molecule test",
+                    "id": "cl5l1ng41000a4060ybmt0cxj"
+                },
+                {
                     "text": "Vsechny hesla v Ansible vaultu",
                     "id": "cl5i0kitw000p40608ibdwkkq"
                 },
                 {
-                    "text": "seznam ssh klicu",
-                    "id": "cl5i0kskv000q4060q3whizrg"
-                },
-                {
-                    "text": "Zapis interfacu pro shorewall",
-                    "id": "cl5jd0s7h000b4060erh6gj1y"
-                },
-                {
-                    "text": "Revision pravidel Shorewallu",
+                    "text": "Revision Shorewallu",
                     "id": "cl5jby231000a40603f6gizwj"
                 },
                 {
-                    "text": "acme.sh (skript na certifikaty) pro hostname v main.cf, v cronu autorenew",
-                    "id": "cl5i0l7xy000s4060yd95s2vd"
+                    "text": "Seznam ssh klicu",
+                    "id": "cl5i0kskv000q4060q3whizrg"
                 }
             ],
             "id": "cl5i0df5v000c4060bhyn6ule",
@@ -30,13 +54,22 @@
         },
         {
             "title": "Doing",
-            "tasks": [],
+            "tasks": [
+                {
+                    "text": "acme.sh (skript na certifikaty) pro hostname v main.cf, v cronu autorenew",
+                    "id": "cl5i0l7xy000s4060yd95s2vd"
+                }
+            ],
             "id": "cl5i0df5v000d4060cvzhubd8",
             "color": "#0693e3"
         },
         {
             "title": "Done",
             "tasks": [
+                {
+                    "text": "*Playbook 1*: Vytvoreni VM",
+                    "id": "cl5i0f0qu000g4060vv0gzzaj"
+                },
                 {
                     "text": "Playbook 3: pridavani klient domen do vsech sluzeb",
                     "id": "cl5i59rqb000c4060wfmhkicc"
@@ -56,10 +89,6 @@
                 {
                     "text": "Apache2",
                     "id": "cl5i0idxy000j4060e93apk7n"
-                },
-                {
-                    "text": "*Playbook 1*: Vytvoreni VM",
-                    "id": "cl5i0f0qu000g4060vv0gzzaj"
                 },
                 {
                     "text": "login a heslo do postfixadmin databaze",
@@ -100,5 +129,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1657718613847
+    "timestamp": 1657806004035
 }
