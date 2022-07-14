@@ -17,10 +17,17 @@
   shell: acme.sh --issue --apache -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }}
   tags: acme_sh
 
+- name: Vytvoreni adresare pro fullchain certifikatu
+  file:
+    path: /etc/ssl/fullchain
+    state: directory
+    mode: 0700 # mozna ma byt jinak
+
 - name: Instalace/kopirovani certifikatu
   shell:
     acme.sh --install-cert -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }} \
-    --cert-file
+    --cert-file /etc/ssl/certs/cert.pem --key-file /etc/ssl/private/key.pem --fullchain-file /etc/ssl/fullchain/fullchain.pem
+  tags: acme_sh
 
 - name: Odstraneni tempu
   file:
