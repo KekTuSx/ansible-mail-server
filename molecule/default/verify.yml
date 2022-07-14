@@ -21,9 +21,10 @@
       command: pgrep master
       register: postfix_is_running
     - assert:
-        that: '"{{ hostname.stdout }}" == "{{ inventory_hostname }}"'
-        that: '"{{ user_vmail.rc }}" == "0"'
-        that: '"{{ mariadb_is_running.rc }}" == "0"'
-        that: '"{{ dovecot_is_running.rc }}" == "0"'
-        that: '"{{ rspamd_is_running.rc }}" == "0"'
-        that: '"{{ postfix_is_running.rc }}" == "0"'
+        one: '"{{ hostname.stdout }}" == "{{ inventory_hostname }}"'
+        two: '"{{ user_vmail.rc }}" == "0"'
+        three: '"{{ mariadb_is_running.rc }}" == "0"'
+        four: '"{{ dovecot_is_running.rc }}" == "0"'
+        five: '"{{ rspamd_is_running.rc }}" == "0"'
+        six: '"{{ postfix_is_running.rc }}" == "0"'
+# TODO pridat zbyvajici sluzby

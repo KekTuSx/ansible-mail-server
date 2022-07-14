@@ -155,6 +155,7 @@ $config['default_port'] = {{ roundcube_default_port|default("143") }};
 // By default the most secure method (from supported) will be selected.
 $config['imap_auth_type'] = {{ roundcube_imap_auth_type|default("null") }};
 
+// TODO roundcube IMAP certifikace
 // IMAP socket context options
 // See http://php.net/manual/en/context.ssl.php
 // The example below enables server certificate validation
@@ -302,6 +303,7 @@ $config['smtp_helo_host'] = '{{ roundcube_smtp_helo_host|default("") }}';
 // timeout > 0 causes connection errors (https://bugs.php.net/bug.php?id=54511)
 $config['smtp_timeout'] = {{ roundcube_smtp_timeout|default("0") }};
 
+// TODO roundcube SMTP certifikace
 // SMTP socket context options
 // See http://php.net/manual/en/context.ssl.php
 // The example below enables server certificate validation, and

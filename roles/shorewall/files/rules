@@ -8,7 +8,7 @@
 # ALLOW		all			all			imaps		993
 # ALLOW 	all			all			pop3s		995
 # 
-# vim, ze tohle je hrozne spatne
+# FIXME cely je to spatne
 #
 ACTION		SOURCE		DEST		PROTO		DPORT
 ALLOW		all			all						22
