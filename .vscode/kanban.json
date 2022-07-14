@@ -5,24 +5,16 @@
             "title": "To-Do",
             "tasks": [
                 {
-                    "text": "Certifikaty pro Roundcube",
-                    "id": "cl5l2utxa000h4060qme98kfi"
+                    "text": "(Mozna) Apache proxy pro Rspamd webove rozhrani\nhttps://thomas-leister.de/en/mailserver-debian-stretch/",
+                    "id": "cl5l7jzf9000l40607h7tjb6e"
+                },
+                {
+                    "text": "(Mozna) Nahradit mail_fqdn aliasy smtp_fqdn a imap_fqdn, kde to je vhodne",
+                    "id": "cl5l5y032000k4060wuepz43j"
                 },
                 {
                     "text": "Zkontrolovat propojeni rspamd a redis",
                     "id": "cl5l2hzkn000g4060kahg5f32"
-                },
-                {
-                    "text": "Certifikaty pro Postfix",
-                    "id": "cl5l29f0f000f40606yr8q1qe"
-                },
-                {
-                    "text": "Certifikaty pro Dovecot",
-                    "id": "cl5l297af000e4060875g1bom"
-                },
-                {
-                    "text": "Certifikaty pro Apache/Postfixadmin?",
-                    "id": "cl5l24hzm000d4060t7mb5fyv"
                 },
                 {
                     "text": "Predelat README",
@@ -54,18 +46,37 @@
         },
         {
             "title": "Doing",
-            "tasks": [
-                {
-                    "text": "acme.sh (skript na certifikaty) pro hostname v main.cf, v cronu autorenew",
-                    "id": "cl5i0l7xy000s4060yd95s2vd"
-                }
-            ],
+            "tasks": [],
             "id": "cl5i0df5v000d4060cvzhubd8",
             "color": "#0693e3"
         },
         {
             "title": "Done",
             "tasks": [
+                {
+                    "text": "Dat certifikatum spravna pristupova prava",
+                    "id": "cl5l5ukmp000j4060syl0vi3l"
+                },
+                {
+                    "text": "Certifikaty pro Roundcube",
+                    "id": "cl5l2utxa000h4060qme98kfi"
+                },
+                {
+                    "text": "Certifikaty pro Postfix",
+                    "id": "cl5l29f0f000f40606yr8q1qe"
+                },
+                {
+                    "text": "Certifikaty pro Dovecot",
+                    "id": "cl5l297af000e4060875g1bom"
+                },
+                {
+                    "text": "Certifikaty pro Apache/Postfixadmin",
+                    "id": "cl5l24hzm000d4060t7mb5fyv"
+                },
+                {
+                    "text": "acme.sh (skript na certifikaty) pro hostname v main.cf, v cronu autorenew",
+                    "id": "cl5i0l7xy000s4060yd95s2vd"
+                },
                 {
                     "text": "*Playbook 1*: Vytvoreni VM",
                     "id": "cl5i0f0qu000g4060vv0gzzaj"
@@ -129,5 +140,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1657806004035
+    "timestamp": 1657813890074
 }
