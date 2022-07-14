@@ -6,6 +6,7 @@
     command: list_vms
   register: existing_vms
   changed_when: no
+  tags: vm
 
 - name: Vytvorit VM, pokud neexistuje
   block:
@@ -40,6 +41,7 @@
         command: define
         xml: "{{ lookup('template', 'vm.xml.j2') }}"
   when: "vm_name not in existing_vms.list_vms"
+  tags: vm
 
 - name: Kontrola, ze VM bezi
   community.libvirt.virt:
@@ -49,6 +51,7 @@
   until: "vm_start_results is success"
   retries: 5
   delay: 2
+  tags: vm
 
 - name: Pridani VM IP do hosts
   lineinfile:
@@ -56,3 +59,4 @@
     regexp: '^ip'
     line: "{{ ip_address }}"
     state: present
+  tags: vm

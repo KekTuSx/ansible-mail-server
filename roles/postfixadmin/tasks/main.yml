@@ -5,14 +5,17 @@
   template:
     src: template/database.j2
     dest: /tmp/database.sql
+  tags: mysql
 
 - name: Vytvoreni databaze
   command: mysql --execute="source /tmp/database.sql;"
+  tags: mysql
 
 - name: Odstraneni tempu
   file:
     state: absent
     path: /tmp/database.sql
+  tags: mysql
 
 # https://stackoverflow.com/a/39951905
 #shell: "mysql << EOF
@@ -29,6 +32,7 @@
   get_url:
     url: https://sourceforge.net/projects/postfixadmin/files/latest/download
     dest: /tmp/postfixadmin-latest.tar.gz
+  tags: postfixadmin
 
 - name: Vytvoreni cesty
   file:
@@ -37,6 +41,7 @@
     recurse: yes
     group: apache
     owner: apache
+  tags: postfixadmin
 
 - name: "Rozbaleni"
   command: tar -C {{ path_postfixadmin }} -xvf /tmp/postfixadmin-latest.tar.gz
@@ -44,15 +49,18 @@
 #   creates: "{{ path_postfixadmin }}/index.php"
   become: true
   become_user: apache
+  tags: postfixadmin
 
 - name: "Replace httpd service"
   copy: src=../files/httpd.service dest=/usr/lib/systemd/system/httpd.service
   notify:
     - "Enable Apache"
     - "Restart Apache"
+  tags: postfixadmin
 
 - name: "Place httpd vhost"
   template: src=../files/vhost.conf.j2 dest=/etc/httpd/conf.d/postfixadmin.conf
+  tags: postfixadmin
 
 - name: "Remove welcome vhost"
   file:
@@ -60,6 +68,8 @@
     state: absent
   notify:
     - "Restart Apache"
+  tags: postfixadmin
 
 - name: "Configure postfixadmin"
   template: src=../files/config.inc.php.j2 dest={{ path_postfixadmin }}/config.inc.php
+  tags: postfixadmin
