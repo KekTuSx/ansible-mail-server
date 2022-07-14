@@ -1,4 +1,10 @@
+<VirtualHost *:80>
+    ServerName {{ mail_fqdn }}
+    Redirect / https://{{ mail_fqdn }}/
+</VirtualHost>
+
 <VirtualHost *:443>
+    ServerName {{ mail_fqdn }}
     ServerAdmin webmaster@{{ domain }}
     DocumentRoot "{{ postfixadmin_path }}"
     ErrorLog "/var/log/httpd/postfixadmin-error_log"
@@ -6,6 +12,7 @@
 
     # Certifikaty
     SSLEngine on
+    SSLHonorCipherOrder on
     SSLCertificateFile {{ cert_path }}
     SSLCertificateKeyFile {{ key_path }}
     SSLCertificateChainFile {{ fullchain_path }}
