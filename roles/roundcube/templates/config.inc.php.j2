@@ -145,7 +145,7 @@ $config['redis_debug'] = {{ roundcube_redis_debug|default("false") }};
 // For example %n = mail.domain.tld, %t = domain.tld
 // WARNING: After hostname change update of mail_host column in users table is
 //          required to match old user data records with the new host.
-$config['default_host'] = '{{ roundcube_default_host|default("localhost") }}';
+$config['default_host'] = 'ssl://{{ roundcube_default_host|default("localhost") }}';
 
 // TCP port used for IMAP connections
 $config['default_port'] = {{ roundcube_default_port|default("143") }};
@@ -155,17 +155,17 @@ $config['default_port'] = {{ roundcube_default_port|default("143") }};
 // By default the most secure method (from supported) will be selected.
 $config['imap_auth_type'] = {{ roundcube_imap_auth_type|default("null") }};
 
-// TODO roundcube IMAP certifikace
 // IMAP socket context options
 // See http://php.net/manual/en/context.ssl.php
 // The example below enables server certificate validation
-//$config['imap_conn_options'] = array(
-//  'ssl'         => array(
-//     'verify_peer'  => true,
-//     'verify_depth' => 3,
-//     'cafile'       => '/etc/openssl/certs/ca.crt',
-//   ),
-// );
+$config['imap_conn_options'] = array(
+  'ssl'         => array(
+     'verify_peer'  => true,
+     'verify_depth' => 3,
+     'cafile'       => '{{ cert_path }}',
+   ),
+ );
+
 // Note: These can be also specified as an array of options indexed by hostname
 $config['imap_conn_options'] = {{ roundcube_imap_conn_options|default("null") }};
 
@@ -269,7 +269,7 @@ $config['messages_cache_threshold'] = {{ roundcube_messages_cache_threshold|defa
 // %d - domain (http hostname $_SERVER['HTTP_HOST'] without the first part)
 // %z - IMAP domain (IMAP hostname without the first part)
 // For example %n = mail.domain.tld, %t = domain.tld
-$config['smtp_server'] = '{{ roundcube_smtp_server|default("localhost") }}';
+$config['smtp_server'] = 'ssl://{{ roundcube_smtp_server|default("localhost") }}';
 
 // SMTP port. Use 25 for cleartext, 465 for Implicit TLS, or 587 for STARTTLS (default)
 $config['smtp_port'] = {{ roundcube_smtp_port|default("587") }};
@@ -303,18 +303,17 @@ $config['smtp_helo_host'] = '{{ roundcube_smtp_helo_host|default("") }}';
 // timeout > 0 causes connection errors (https://bugs.php.net/bug.php?id=54511)
 $config['smtp_timeout'] = {{ roundcube_smtp_timeout|default("0") }};
 
-// TODO roundcube SMTP certifikace
 // SMTP socket context options
 // See http://php.net/manual/en/context.ssl.php
 // The example below enables server certificate validation, and
 // requires 'smtp_timeout' to be non zero.
-// $config['smtp_conn_options'] = array(
-//   'ssl'         => array(
-//     'verify_peer'  => true,
-//     'verify_depth' => 3,
-//     'cafile'       => '/etc/openssl/certs/ca.crt',
-//   ),
-// );
+ $config['smtp_conn_options'] = array(
+   'ssl'         => array(
+     'verify_peer'  => true,
+     'verify_depth' => 3,
+     'cafile'       => '{{ cert_path }}',
+   ),
+ );
 // Note: These can be also specified as an array of options indexed by hostname
 $config['smtp_conn_options'] = {{ roundcube_smtp_conn_options|default("null") }};
 
