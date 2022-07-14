@@ -26,7 +26,7 @@
 - name: Instalace/kopirovani certifikatu
   shell:
     acme.sh --install-cert -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }} \
-    --cert-file /etc/ssl/certs/cert.pem --key-file /etc/ssl/private/key.pem --fullchain-file /etc/ssl/fullchain/fullchain.pem
+    --cert-file {{ cert_path  }} --key-file {{ key_path }} --fullchain-file {{ fullchain_path }}
   tags: acme_sh
 
 - name: Odstraneni tempu

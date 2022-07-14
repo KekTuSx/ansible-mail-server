@@ -12,14 +12,17 @@ mail_user: mail
 email_for_updates: "{{ mail_user }}@{{ domain }}"
 
 dovecot_enc: SHA512-CRYPT
+cert_path: /etc/ssl/certs/cert.pem
+key_path: /etc/ssl/private/key.pem
+fullchain_path: /etc/ssl/fullchain/fullchain.pem
 
 # Postfixadmin
-path_postfixadmin: /var/www/postfixadmin
+postfixadmin_path: /var/www/postfixadmin
 mysql_hostname: "{{ mail_fqdn }}"
 mysql_database: postfix
 mysql_username: postfixadmin
-mysql_password: heslo # DO VAULTU
-setup_password: heslo # DO VAULTU
+mysql_password: heslo # TODO DO VAULTU
+setup_password: heslo # ^^^^^ 
 
 personal_email: 
 
