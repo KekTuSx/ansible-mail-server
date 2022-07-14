@@ -7,6 +7,18 @@
     dest: /tmp
     clone: yes
     update: yes
+  tags: git
   
 - name: Instalace acme.sh
   shell: cd /tmp/acme.sh && ./acme.sh --install -m {{ personal_email }}
+  tags: acme_sh
+
+- name: Vystaveni certifikatu
+  shell: acme.sh --issue -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }} --apache # mel by se kazdych 60 dni obnovit sam
+  tags: acme_sh
+
+- name: Odstraneni tempu
+  file:
+    path: /tmp/acme.sh
+    state: absent
+  tags: acme_sh
