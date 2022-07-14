@@ -6,7 +6,7 @@
     state: latest
     pkg: 
       - shorewall
-    update_cache: yes
+    update_cache: true
 
 # https://wiki.debian.org/HowTo/shorewall
 - name: Toggle Shorewallu
@@ -47,7 +47,7 @@
   service:
     name: shorewall
     state: restarted
-    enabled: yes
+    enabled: true
   notify:
   - Restart Shorewalu
   tags: shorewall

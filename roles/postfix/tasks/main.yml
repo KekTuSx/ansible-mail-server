@@ -7,7 +7,7 @@
     pkg:
       - postfix
       - postfix-mysql
-    update_cache: yes
+    update_cache: true
 
 - name: Delete default config
   file:

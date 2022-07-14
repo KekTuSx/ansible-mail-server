@@ -1,14 +1,14 @@
 ---
-# handlers file for Nainterceptor.postfixadmin
+# Handlery pro Postfixadmina
 
-- name: "Enable Apache"
+- name: Enable Apache
   service:
     name: httpd
     state: started
-    enabled: yes
+    enabled: true
 #  when: ansible_distribution == 'CentOS'
 
-- name: "Restart Apache"
+- name: Restart Apache
   service:
     name: httpd
     state: restarted

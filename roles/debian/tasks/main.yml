@@ -5,7 +5,7 @@
   community.libvirt.virt:
     command: list_vms
   register: existing_vms
-  changed_when: no
+  changed_when: false
   tags: vm
 
 - name: Vytvorit VM, pokud neexistuje
@@ -13,15 +13,15 @@
     - name: Stazeni image
       get_url:
         url: "{{ base_image_url }}"
-        dest: "/tmp/{{ base_image_name }}"
-        checksum: "sha256:{{ base_image_sha }}"
+        dest: /tmp/{{ base_image_name }}
+        checksum: sha256:{{ base_image_sha }}
         
     - name: Kopirovani image do libvirt image poolu
       copy:
         dest: "{{ libvirt_pool_dir }}/{{ vm_name }}.qcow2"
-        src: "/tmp/{{ base_image_name }}"
-        force: no
-        remote_src: yes 
+        src: /tmp/{{ base_image_name }}
+        force: false
+        remote_src: true
         mode: 0660
       register: copy_results
 
@@ -40,7 +40,7 @@
       community.libvirt.virt:
         command: define
         xml: "{{ lookup('template', 'vm.xml.j2') }}"
-  when: "vm_name not in existing_vms.list_vms"
+  when: vm_name not in existing_vms.list_vms
   tags: vm
 
 - name: Kontrola, ze VM bezi
@@ -48,14 +48,14 @@
     name: "{{ vm_name }}"
     state: running
   register: vm_start_results
-  until: "vm_start_results is success"
+  until: vm_start_results is success
   retries: 5
   delay: 2
   tags: vm
 
 - name: Pridani VM IP do hosts
   lineinfile:
-    dest: {{ path_hosts }}
+    dest: "{{ path_hosts }}"
     regexp: '^ip'
     line: "{{ ip_address }}"
     state: present

@@ -17,7 +17,7 @@
     pkg:
       - rspamd
       - redis-server
-    update_cache: yes
+    update_cache: true
 
 - name: Template worker-controller.inc
   template:
@@ -80,7 +80,7 @@
   file:
     path: /var/lib/rspamd/dkim/
     state: directory
-    recurse: yes
+    recurse: true
     owner: _rspamd
     group: _rspamd
     mode: "0440"

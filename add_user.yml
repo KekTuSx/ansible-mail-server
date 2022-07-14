@@ -21,9 +21,9 @@
         login_db: vmail
         query: INSERT INTO accounts (username, domain, password, quota, enabled, sendonly) values ('%s', '%s', '%s', 2048, true, false)
         positional_args:
-        - {{ username }}
-        - {{ domain }}
-        - {{ user_pw_hash }}
+        - "{{ username }}"
+        - "{{ domain }}"
+        - "{{ user_pw_hash }}"
         
       #shell: "mysql << EOF
       #  USE vmail;

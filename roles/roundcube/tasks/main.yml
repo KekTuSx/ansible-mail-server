@@ -5,7 +5,7 @@
   apt:
     name: "{{ roundcube_package }}"
     state: "{{ roundcube_package_state }}"
-    update_cache: yes
+    update_cache: true
 
 - name: Template configu Roundcube
   template:
@@ -18,8 +18,8 @@
 
 - name: Odkaz na logy
   file:
-    src: '/var/www/roundcube/logs'
-    dest: '/var/log/roundcube'
+    src: /var/www/roundcube/logs
+    dest: /var/log/roundcube
     owner: www-data
     group: www-data
     state: link

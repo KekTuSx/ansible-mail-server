@@ -28,7 +28,7 @@
 # https://github.com/Nainterceptor/ansible-role-postfixadmin
 # ↓ ↓ ↓ ↓ ↓ ↓
 
-- name: Stazeni tarballu
+- name: Stazeni taru
   get_url:
     url: https://sourceforge.net/projects/postfixadmin/files/latest/download
     dest: /tmp/postfixadmin-latest.tar.gz
@@ -38,12 +38,12 @@
   file:
     dest: "{{ path_postfixadmin }}"
     state: directory
-    recurse: yes
+    recurse: true
     group: apache
     owner: apache
   tags: postfixadmin
 
-- name: "Rozbaleni"
+- name: Rozbaleni taru
   command: tar -C {{ path_postfixadmin }} -xvf /tmp/postfixadmin-latest.tar.gz
 # args:
 #   creates: "{{ path_postfixadmin }}/index.php"
@@ -51,25 +51,25 @@
   become_user: apache
   tags: postfixadmin
 
-- name: "Replace httpd service"
+- name: Nahrazeni httpd.service
   copy: src=../files/httpd.service dest=/usr/lib/systemd/system/httpd.service
   notify:
-    - "Enable Apache"
-    - "Restart Apache"
+    - Enable Apache
+    - Restart Apache
   tags: postfixadmin
 
-- name: "Place httpd vhost"
+- name: Template httpd configu
   template: src=../files/vhost.conf.j2 dest=/etc/httpd/conf.d/postfixadmin.conf
   tags: postfixadmin
 
-- name: "Remove welcome vhost"
+- name: Odstraneni httpd welcome configu
   file:
     dest: "/etc/httpd/conf.d/welcome.conf"
     state: absent
   notify:
-    - "Restart Apache"
+    - Restart Apache
   tags: postfixadmin
 
-- name: "Configure postfixadmin"
-  template: src=../files/config.inc.php.j2 dest={{ path_postfixadmin }}/config.inc.php
+- name: Template konfigurace Postfixadmina
+  template: src=../templates/config.inc.php.j2 dest={{ path_postfixadmin }}/config.inc.php
   tags: postfixadmin

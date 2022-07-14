@@ -11,7 +11,7 @@
       - dovecot-mysql
       - dovecot-sieve
       - dovecot-managesieved
-    update_cache: yes
+    update_cache: true
 
 - name: Delete default config
   file:

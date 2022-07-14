@@ -24,7 +24,7 @@
 
 - name: Update
   apt:
-    update_cache: yes
+    update_cache: true
 
 - name: Upgrade
   apt:
@@ -53,7 +53,7 @@
 
 - name: Set mailname
   copy:
-    dest: "/etc/mailname"
+    dest: /etc/mailname
     content: "{{ mail_fqdn }}"
 
 - name: Restart systemd-logind
