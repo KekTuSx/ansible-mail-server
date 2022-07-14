@@ -1,24 +1,26 @@
 ---
 # Roundcube (webmail)
 
-- name: Install roundcube package
+- name: Instalace Roundcube balicku
   apt:
     name: "{{ roundcube_package }}"
     state: "{{ roundcube_package_state }}"
     update_cache: yes
 
-- name: Deploy roundcube config template
+- name: Template configu Roundcube
   template:
     src: templates/config.inc.php.j2
     dest: /var/www/roundcube/config/config.inc.php
     owner: www-data
     group: www-data
     mode: '0644'
+  tags: roundcube
 
-- name: Link logs to a sane location
+- name: Odkaz na logy
   file:
     src: '/var/www/roundcube/logs'
     dest: '/var/log/roundcube'
     owner: www-data
     group: www-data
     state: link
+  tags: roundcube
