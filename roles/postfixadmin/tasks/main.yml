@@ -3,7 +3,7 @@
 
 - name: Template databaze
   template:
-    src: template/database.j2
+    src: template/database.sql.j2
     dest: /tmp/database.sql
   tags: mysql
 

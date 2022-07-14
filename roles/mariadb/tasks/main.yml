@@ -23,7 +23,7 @@
 
 - name: Copy mail config
   template:
-    src: templates/config.j2
+    src: templates/config.sql.j2
     dest: /tmp/config.sql
   tags: mysql
 

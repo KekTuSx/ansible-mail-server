@@ -21,7 +21,7 @@
 
 - name: Template worker-controller.inc
   template:
-    src: templates/worker-controller.j2
+    src: templates/worker-controller.inc.j2
     dest: /etc/rspamd/local.d/worker-proxy.inc
   tags: rspamd
 
@@ -49,7 +49,7 @@
     dest: /etc/rspamd/local.d/options.inc
   tags: rspamd
 
-- name: Copy worker-normal.inc
+- name: Copy worker-normal.inc # FIXME zmatky v nazvech a souborech
   copy:
     src: files/worker-proxy.inc
     dest: /etc/rspamd/local.d/worker-proxy.inc
