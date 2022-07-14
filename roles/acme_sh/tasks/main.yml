@@ -22,12 +22,38 @@
     path: /etc/ssl/fullchain
     state: directory
     mode: 0700 # mozna ma byt jinak
+    owner: root
+    group: root
 
 - name: Instalace/kopirovani certifikatu
   shell:
     acme.sh --install-cert -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }} \
     --cert-file {{ cert_path  }} --key-file {{ key_path }} --fullchain-file {{ fullchain_path }}
   tags: acme_sh
+
+- name: Nastaveni pristupovych prav k certifikatu
+  file:
+    path: {{ cert_path }}
+    state: file
+    mode: 0444
+    owner: root
+    group: root
+
+- name: Nastaveni pristupovych prav k privatnimu klici
+  file:
+    path: {{ key_path }}
+    state: file
+    mode: 0400
+    owner: root
+    group: root
+
+- name: Nastaveni pristupovych prav k fullchain klici
+  file:
+    path: {{ fullchain_path }}
+    state: file
+    mode: 0400
+    owner: root
+    group: root
 
 - name: Odstraneni tempu
   file:
