@@ -5,8 +5,8 @@
   git:
     repo: https://github.com/acmesh-official/acme.sh
     dest: /tmp
-    clone: yes
-    update: yes
+    clone: true
+    update: true
   tags: git
   
 - name: Instalace acme.sh
@@ -14,8 +14,13 @@
   tags: acme_sh
 
 - name: Vystaveni certifikatu
-  shell: acme.sh --issue -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }} --apache # mel by se kazdych 60 dni obnovit sam
+  shell: acme.sh --issue --apache -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }}
   tags: acme_sh
+
+- name: Instalace/kopirovani certifikatu
+  shell:
+    acme.sh --install-cert -d {{ mail_fqdn }} -d {{ smtp_fqdn }} -d {{ imap_fqdn }} \
+    --cert-file
 
 - name: Odstraneni tempu
   file:
