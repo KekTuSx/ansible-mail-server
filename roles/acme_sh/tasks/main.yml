@@ -33,7 +33,7 @@
 
 - name: Nastaveni pristupovych prav k certifikatu
   file:
-    path: {{ cert_path }}
+    path: "{{ cert_path }}"
     state: file
     mode: 0444
     owner: root
@@ -41,7 +41,7 @@
 
 - name: Nastaveni pristupovych prav k privatnimu klici
   file:
-    path: {{ key_path }}
+    path: "{{ key_path }}"
     state: file
     mode: 0400
     owner: root
@@ -49,7 +49,7 @@
 
 - name: Nastaveni pristupovych prav k fullchain klici
   file:
-    path: {{ fullchain_path }}
+    path: "{{ fullchain_path }}"
     state: file
     mode: 0400
     owner: root
