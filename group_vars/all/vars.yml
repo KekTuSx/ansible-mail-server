@@ -12,15 +12,24 @@ host: mail
 domain: sic.cz
 ip_address: "{{ ansible_default_ipv4.address }}"
 mail_fqdn: "{{ host }}.{{ domain }}"
-smtp_fqdn: "smtp.{{ domain }}" # aliasy pro mail_fqdn
-imap_fqdn: "imap.{{ domain }}" # ^^^^^
+## Aliasy pro mail_fqdn
+smtp_fqdn: "smtp.{{ domain }}"
+imap_fqdn: "imap.{{ domain }}"
+
 mail_user: mail
 email_for_updates: "{{ mail_user }}@{{ domain }}"
 
+# Zabezpeceni
 dovecot_enc: SHA512-CRYPT
+
+## Certifikaty
 cert_path: /etc/ssl/certs/cert.pem
 key_path: /etc/ssl/private/key.pem
 fullchain_path: /etc/ssl/fullchain/fullchain.pem
+
+# SSH klice
+ssh_key_priv: /root/.ssh/id_rsa
+ssh_key_pub: /root/.ssh/id_rsa.pub
 
 # Postfixadmin
 postfixadmin_path: /var/www/postfixadmin

@@ -32,7 +32,7 @@
         --run-command '/etc/init.d/ssh start'
         --hostname {{ vm_name }} \
         --root-password password:{{ vm_root_pass }} \
-        --ssh-inject 'root:file:{{ ssh_key }}' \
+        --ssh-inject 'root:file:{{ ssh_key_pub }}' \
         --uninstall cloud-init
       when: copy_results is changed
 
