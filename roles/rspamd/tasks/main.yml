@@ -22,7 +22,7 @@
 - name: Template worker-controller.inc # FIXED
   template:
     src: templates/worker-controller.inc.j2
-    dest: /etc/rspamd/local.d/worker-controller.inc # OG /etc/rspamd/local.d/worker-proxy.inc
+    dest: /etc/rspamd/local.d/worker-controller.inc # puvodne /etc/rspamd/local.d/worker-proxy.inc
   tags: rspamd
 
 - name: Copy classifier-bayes.conf
@@ -49,13 +49,13 @@
     dest: /etc/rspamd/local.d/options.inc
   tags: rspamd
 
-- name: Copy worker-normal.inc
+- name: Copy worker-normal.inc # pridano
   copy:
     src: files/worker-normal.inc
     dest: /etc/rspamd/local.d/worker-normal.inc
   tags: rspamd
 
-- name: Copy worker-proxy.inc # FIXED Copy worker-normal.inc
+- name: Copy worker-proxy.inc # FIXED puvodne Copy worker-normal.inc
   copy:
     src: files/worker-proxy.inc
     dest: /etc/rspamd/local.d/worker-proxy.inc

@@ -21,7 +21,7 @@ postfixadmin_path: /var/www/postfixadmin
 mysql_hostname: "{{ mail_fqdn }}"
 mysql_database: postfix
 mysql_username: postfixadmin
-mysql_password: heslo # TODO DO VAULTU
+mysql_password: heslo # TODO HESLO DO VAULTU
 setup_password: heslo # ^^^^^ 
 
 personal_email: 
