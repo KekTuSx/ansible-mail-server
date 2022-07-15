@@ -27,7 +27,7 @@ $CONF['configured'] = true;
 // In order to setup Postfixadmin, you MUST specify a hashed password here.
 // To create the hash, visit setup.php in a browser and type a password into the field,
 // on submission it will be echoed out to you as a hashed value.
-$CONF['setup_password'] = '{{ setup_password }}';
+$CONF['setup_password'] = '{{ vault_setup_pass | hash('sha1') }}'; // https://github.com/postfixadmin/postfixadmin/issues/263#issuecomment-482686718
 
 // Language config
 // Language files are located in './languages', change as required..
@@ -83,7 +83,7 @@ function language_hook($PALANG, $language) {
 $CONF['database_type'] = 'mysqli';
 $CONF['database_host'] = '{{ mysql_hostname }}';
 $CONF['database_user'] = '{{ mysql_username }}';
-$CONF['database_password'] = '{{ mysql_password }}';
+$CONF['database_password'] = '{{ vault_mysql_pass }}';
 $CONF['database_name'] = '{{ mysql_database }}';
 // If you need to specify a different port for a MYSQL database connection, use e.g.
 //   $CONF['database_host'] = '172.30.33.66:3308';

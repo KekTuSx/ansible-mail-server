@@ -20,7 +20,7 @@
 # https://stackoverflow.com/a/39951905
 #shell: "mysql << EOF
 #  CREATE DATABASE {{ mysql_database }};
-#  CREATE USER '{{ mysql_username }}'@'{{ mail_fqdn }}' IDENTIFIED BY '{{ mysql_password }}';
+#  CREATE USER '{{ mysql_username }}'@'{{ mail_fqdn }}' IDENTIFIED BY '{{ vault_mysql_pass }}';
 #  GRANT ALL PRIVILEGES ON `{{ mysql_database }}` . * TO '{{ mysql_username }}'@'{{ mail_fqdn }}';
 #  FLUSH PRIVILEGES;
 #  EOF"

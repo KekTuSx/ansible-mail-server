@@ -1,6 +1,12 @@
 ---
 # Globalni promenne
 
+# Hesla
+vault_vmail_pass: {{ vmail_pass }}
+vault_mail_user_pass: {{ mail_user_pass }}
+vault_rspamadm_pass: {{ rspamadm_pass }}
+rspamadm_pass_hash: # HACK1
+
 # Mail server
 host: mail
 domain: sic.cz
@@ -21,8 +27,8 @@ postfixadmin_path: /var/www/postfixadmin
 mysql_hostname: "{{ mail_fqdn }}"
 mysql_database: postfix
 mysql_username: postfixadmin
-mysql_password: heslo # TODO HESLO DO VAULTU
-setup_password: heslo # ^^^^^ 
+vault_mysql_pass: {{ mysql_pass }}
+vault_setup_pass: {{ setup_pass}}
 
 personal_email: 
 

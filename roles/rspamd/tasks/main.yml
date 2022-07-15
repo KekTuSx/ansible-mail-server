@@ -19,11 +19,19 @@
       - redis-server
     update_cache: true
 
+- name: Generovani hashe hesla pro rspamadmina # HACK1
+  command: rspamadm pw -p {{ vault_rspamadm_pass }}
+  register: rspamadm_pass_hash
+
 - name: Template worker-controller.inc # FIXED
   template:
     src: templates/worker-controller.inc.j2
     dest: /etc/rspamd/local.d/worker-controller.inc # puvodne /etc/rspamd/local.d/worker-proxy.inc
   tags: rspamd
+
+- name: Nuke puvodniho hashe # HACK1
+  set_fact:
+    rspamadm_pass_hash:
 
 - name: Copy classifier-bayes.conf
   copy:
