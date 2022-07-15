@@ -27,4 +27,4 @@
         four: '"{{ dovecot_is_running.rc }}" == "0"'
         five: '"{{ rspamd_is_running.rc }}" == "0"'
         six: '"{{ postfix_is_running.rc }}" == "0"'
-# TODO pridat zbyvajici sluzby
+# TODO1 pridat zbyvajici sluzby

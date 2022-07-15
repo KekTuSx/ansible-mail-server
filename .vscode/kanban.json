@@ -13,14 +13,6 @@
                     "id": "cl5l5y032000k4060wuepz43j"
                 },
                 {
-                    "text": "Zkontrolovat propojeni rspamd a redis",
-                    "id": "cl5l2hzkn000g4060kahg5f32"
-                },
-                {
-                    "text": "Predelat README",
-                    "id": "cl5l1oght000b4060ivhbglb1"
-                },
-                {
                     "text": "Bats test",
                     "id": "cl5l1oy1d000c4060zwgh0ino"
                 },
@@ -29,16 +21,8 @@
                     "id": "cl5l1ng41000a4060ybmt0cxj"
                 },
                 {
-                    "text": "Vsechny hesla v Ansible vaultu",
-                    "id": "cl5i0kitw000p40608ibdwkkq"
-                },
-                {
                     "text": "Revision Shorewallu",
                     "id": "cl5jby231000a40603f6gizwj"
-                },
-                {
-                    "text": "Seznam ssh klicu",
-                    "id": "cl5i0kskv000q4060q3whizrg"
                 }
             ],
             "id": "cl5i0df5v000c4060bhyn6ule",
@@ -53,6 +37,22 @@
         {
             "title": "Done",
             "tasks": [
+                {
+                    "text": "Seznam ssh klicu",
+                    "id": "cl5i0kskv000q4060q3whizrg"
+                },
+                {
+                    "text": "Predelat README",
+                    "id": "cl5l1oght000b4060ivhbglb1"
+                },
+                {
+                    "text": "Dat hesla do Ansible vaultu (potrebuju nainstalovany Ansile)",
+                    "id": "cl5i0kitw000p40608ibdwkkq"
+                },
+                {
+                    "text": "Zkontrolovat propojeni rspamd a redis",
+                    "id": "cl5l2hzkn000g4060kahg5f32"
+                },
                 {
                     "text": "Dat certifikatum spravna pristupova prava",
                     "id": "cl5l5ukmp000j4060syl0vi3l"
@@ -140,5 +140,5 @@
     ],
     "autosave": true,
     "saveToFile": true,
-    "timestamp": 1657813890074
+    "timestamp": 1657888738976
 }

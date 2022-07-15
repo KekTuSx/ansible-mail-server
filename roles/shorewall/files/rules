@@ -10,7 +10,7 @@
 # 
 # FIXME cely je to spatne
 #
-ACTION		SOURCE		DEST		PROTO		DPORT
+# ACTION		SOURCE		DEST		PROTO		DPORT
 ALLOW		all			all						22
 ALLOW		all			all						25
 ALLOW		all			all						80
