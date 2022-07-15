@@ -19,12 +19,18 @@
     - name: Pridani zaznamu do databaze
       community.mysql.mysql_query:
         login_db: vmail
-        query: INSERT INTO accounts (username, domain, password, quota, enabled, sendonly) values ('%s', '%s', '%s', 2048, true, false)
-        positional_args:
-        - "{{ username }}"
-        - "{{ domain }}"
-        - "{{ user_pw_hash }}"
-        
+        query: INSERT INTO accounts (username, domain, password, quota, enabled, sendonly) values ('{{ username }}', '{{ domain }}', '{{ user_pw_hash }}', 2048, true, false)
+      
+      # JINE ZPUSOBY RESENI
+      #####
+      ## zbytecne komplikovane
+      #query: INSERT INTO accounts (username, domain, password, quota, enabled, sendonly) values ('%s', '%s', '%s', 2048, true, false)
+      # positional_args:
+      #- "{{ username }}"
+      #- "{{ domain }}"
+      #- "{{ user_pw_hash }}"
+
+      ## nepouziva modul ansiblu
       #shell: "mysql << EOF
       #  USE vmail;
       #  INSERT INTO accounts (username, domain, password, quota, enabled, sendonly) values ('{{ username }}', '{{ domain }}', '{{ user_pw_hash }}', 2048, true, false);
