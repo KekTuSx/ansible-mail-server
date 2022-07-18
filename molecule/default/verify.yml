@@ -5,21 +5,39 @@
     - name: Get hostname
       command: hostname
       register: hostname
+
     - name: Get username
       command: getent passwd vmail
       register: user_vmail
-    - name: mariadb is is_running?
+
+    - name: mariadb is_running?
       command: pgrep mysqld
       register: mariadb_is_running
+
     - name: dovecot is_running?
       command: pgrep dovecot
       register: dovecot_is_running
+
     - name: rspamd is_running?
       command: pgrep rspamd
       register: rspamd_is_running
+
     - name: postfix is_running?
       command: pgrep master
       register: postfix_is_running
+
+    - name: apache/postfixadmin is_running?
+      command: pgrep apache2
+      register: apache_is_running
+
+    #- name: roundcube is_running?
+    #  command:
+    #  register:
+
+    - name: shorewall is_running?
+      command: pgrep shorewall
+      register: shorewall_is_running
+
     - assert:
         one: '"{{ hostname.stdout }}" == "{{ inventory_hostname }}"'
         two: '"{{ user_vmail.rc }}" == "0"'
@@ -27,4 +45,6 @@
         four: '"{{ dovecot_is_running.rc }}" == "0"'
         five: '"{{ rspamd_is_running.rc }}" == "0"'
         six: '"{{ postfix_is_running.rc }}" == "0"'
-# TODO1 pridat zbyvajici sluzby
+        seven: '"{{ apache_is_running.rc }}" == "0"'
+        eight: '"{{ shorewall_is_running.rc }}" == "0"'
+# TODO1 jak overit roundcube (a mozna postfixadmin)
