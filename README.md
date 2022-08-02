@@ -1,3 +1,5 @@
+# ALMOST CERTAINLY DOES NOT WORK
+
 https://thomas-leister.de/mailserver-debian-stretch/
 
 ### Credentials
